@@ -16,3 +16,7 @@ app.get("/todos", (req,res) => {
 app.listen(3232, () => {
   console.log(`Server is running on http://localhost:3232`);
 });
+
+
+// 1. how to send post req using fetch func
+// 2. add new todo at the server - input from form, add to server array

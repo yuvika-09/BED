@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Todo</title>
+</head>
+<body>
+    <h2>Add New Todo</h2>
+    <form id="todoForm">
+        <input type="text" id="title" placeholder="Title" required><br><br>
+        <textarea id="description" placeholder="Description" required></textarea><br><br>
+        <button type="submit">Add</button>
+    </form>
+
+    <br>
+    <a href="index.html">Go to Todo List</a>
+
+    <script>
+        const form = document.getElementById("todoForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+
+            fetch("/add-todo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ title, description })
+            }).then(res => res.json())
+              .then(data => {
+                  alert("Todo added!");
+                  window.location.href = "index.html";
+              }).catch(err => {
+                  console.log(err);
+                  alert("Error");
+              });
+        });
+    </script>
+</body>
+</html>

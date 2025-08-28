@@ -44,14 +44,15 @@ function isLogin(req, res, next) {
   res.json({ success: false, message: "Invalid token" });
 }
 
-
+  
 
 
 // create
 app.post("/blogs", isLogin,async(req,res)=>{
     let title = req.body.title;
     let body = req.body.body;
-    let userId = req.body.userId; 
+    // let userId = req.body.userId; 
+    let userId = req.userId; 
      let user = await User.findById(req.userId);
     if(!user){
         return res.json({
@@ -79,13 +80,14 @@ app.post("/blogs", isLogin,async(req,res)=>{
 
 app.delete("/blogs/:blogId",isLogin,async(req,res)=>{
     const blogId = req.params.blogId;
+    let userId = req.userId
   const blogExist = await Blog.findById(blogId);
 
   if (!blogExist) {
     return res.json({ success: false, message: "Blog does not exist" });
   }
 
-  if (blogExist.userId.toString() !== req.userId) {
+  if (blogExist.userId !== userId) {
     return res.json({ success: false, message: "Permission denied" });
   }
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo-item">BlogApp</h1>
+        </div>
+        <div class="nav-links">
+            <nav class="nav">
+                <ul class="nav-link-list">
+                    <li class="nav-link-item"><a href="/">Home</a></li>
+                    <li class="nav-link-item"><a href="/allblogs">All blogs</a></li>
+                    <li class="nav-link-item"><a href="/myblogs">My blogs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="login-form-title">Login</h1>
+        <form id="login-form" action="">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button>Login</button>
+        </form>
+
+        <h1 class="signup-form-title">Signup</h1>
+        <form id="signup-form" action="">
+            <input type="text" id="signup-username" placeholder="Username" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button>Sign Up</button>
+        </form>
+
+        <h1 class="add-form-title">Add Blog</h1>
+        <form class="addblog-form" action="">
+            <input type="text" id="blog-title" placeholder="Blog Title" required>
+            <input type="text" id="blog-content" placeholder="Blog Content" required>
+            <button>Create Blog</button>
+        </form>
+    </main>
+
+    <footer></footer>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

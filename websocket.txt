@@ -1,0 +1,7 @@
+WEBSOCKET  -> communication protocol just like HTTP
+a communication protocol and technology that provides a persistent, full-duplex(2-way) communication channel
+between a client(like a web browser) and a server over a single TCP connection
+
+
+1. WEBSOCKET - ws  ->native support available on browser
+2. socket.io  ->native support not available on browser

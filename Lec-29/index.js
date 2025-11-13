@@ -116,4 +116,4 @@ deleteUser("1")
 
 
 
-//CLIENT - respective classes of class(methoda)
+//CLIENT - respective classes of class(methods)

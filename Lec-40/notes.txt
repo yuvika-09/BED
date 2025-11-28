@@ -1,0 +1,6 @@
+framework helping in testing - jest
+                        npm i jest
+
+                        npm i --save-dev supertest
+
+--save-dev   -> use for dev dependencies, they dont go in production just for developement time

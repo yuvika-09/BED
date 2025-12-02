@@ -1,0 +1,39 @@
+TESTING 
+
+
+UNIT TESTING
+-------------
+framework helping in testing - jest
+                        npm i jest
+
+                        npm i --save-dev supertest
+
+--save-dev   -> use for dev dependencies, they dont go in production just for developement time
+
+
+
+MOCKING in jest 
+While testing a function, we mock,
+1. external function
+2. db call
+3. external class/module used
+
+const sum = jest.fn();  // function mocking
+jest.mock("./math");  //module mocking
+
+mockReturnValue and mockReturnValueOnce -> sync func
+mockResolvedValue and mockResolvedValueOnce -> async func
+
+
+
+
+INTEGRATION TESTING
+--------------------
+In integration testing, to test db,
+for mongodb
+we store data in 'in memory server' nd after testing that data is deleted
+
+1. before all tests, connect with 'in memory server'
+2. insert data 
+3. after each test, drop/delete data 
+4. after all tests, disconnect with db

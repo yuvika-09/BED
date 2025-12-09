@@ -37,3 +37,91 @@ we store data in 'in memory server' nd after testing that data is deleted
 2. insert data 
 3. after each test, drop/delete data 
 4. after all tests, disconnect with db
+
+
+
+--------
+DOCKER
+--------
+Project taken from github donot run on my system, why?
+- env file
+- os differ, runtime env
+- dependency version
+- postgres, redis etc not installed 
+
+To solve this we use DOCKER (2013)
+Docker -> containerisation tool
+
+conatiner -> self-occupied box -> os,node dependencies, code
+The dev puts all components in a container nd sends it to the user nd user run the container nd project works.
+
+
+IMAGE vs CONTAINER 
+Image is a blueprint/instruction
+From image, container is build.
+Single image can create multiple containers 
+
+Container is a running instance of image
+
+*These containers are isolated, they are not connected to each other
+
+
+JARGONS
+Docker Engine
+- container run 
+- stop
+- remove 
+- image create 
+- image pull
+when receive command to run image, it search locally for the image, if present run, otherwise search in docker registry
+
+
+Docker cli
+- Write commands 
+- commands sent to docker engine to execute
+
+Docker registry
+docker hub -> (public)
+- contain public images
+
+After docker engine get the image, it creates a container
+
+
+BASIC DOCKER COMMANDS 
+1. docker images -> shows all images 
+2. docker pull -> pull image form registry
+alpine -> version of small size 
+3. docker rmi <id> -> to remove image
+4. docker run <image_name> -> run image 
+in this specify ports too using -p 
+-d -> detach mode, if we dont want to see the logs nd use the terminal 
+5. docker logs <container_id> -> see logs 
+6. docker ps -> see containers on system
+7. docker run -d --name mongodb -p 27018:27017 mongo 
+8. docker kill <container_name/id>-> stop container
+9. docker rm <container_name/id> -> delete container 
+10. docker exec -it <conatiner_name>  -> to run cli inside container
+-it -> interactive mode
+for mongodb,
+docker exec -it mongodb ./bin/bash
+docker exec -it mongodb mongosh
+for redis, 
+docker exec it redis redis-cli 
+for psql,
+docker exec -it postgres psql 
+
+
+PORT MAPPING 
+Map port no of my system to the container's port no 
+command -> docker run -p 27017:27017 mongo
+                           |     |
+                        system  container
+we can change port no of system
+
+
+
+To create image, 
+1. create dockerfile inside project
+2. in terminal, to create image ,
+    docker build -t <image-name> <path to docker file>
+  eg.   docker build -t express-app .

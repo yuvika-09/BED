@@ -1,0 +1,11 @@
+# base image 
+FROM node:alpine
+#working directory (if not present then it maked the directory)
+WORKDIR /app
+#copy the code, if same directory, use dot space dot
+COPY . .
+
+
+RUN npm install
+CMD ["node" , "server.js"]  
+#executable commands inside CMD

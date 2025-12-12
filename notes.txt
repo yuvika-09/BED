@@ -125,3 +125,30 @@ To create image,
 2. in terminal, to create image ,
     docker build -t <image-name> <path to docker file>
   eg.   docker build -t express-app .
+
+
+
+DOCKER VOLUME 
+Docker Network : some network for container to talk to each other
+DOCKER COMPOSE : directly start every service without doing it manually
+command - docker compose up
+build - if code changes frequently, use build. it builds everything when container is up
+image - if code remains same, use image. it uses already build image for container 
+
+
+
+Steps to run an image on a new ec2 instance:
+1. install docker : sudo yum install docker 
+2. run docker engine
+  - sudo service docker status -> (inactive)
+  - sudo service docker start 
+  - sudo service docker status -> (active)
+2. pull image : sudo docker pull <yuvika/express_nn:v2.3(image name)>
+3. run image : sudo docker run -p 5000:5000 <image name/id>
+4. send req to ec2 instance's public ip:port_no
+    but it will not show anything. we have to open security groups nd add new inbound rule for that port no.
+
+Platform error 
+docker buildx build --platform 
+<platform name> -t <tag name>
+docker push tag
